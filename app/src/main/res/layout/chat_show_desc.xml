@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<!--接收的语音消息-->
+    <TextView
+        android:id="@+id/tv_chat_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="11:30"/>
+
+    <LinearLayout
+        android:id="@+id/ll_receive_voice"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_receive_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rc_ic_voice_receive_play3"
+            android:background="@drawable/rc_ic_bubble_left"
+            />
+        <TextView
+            android:id="@+id/tv_receive_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='12 \"  '/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_receive_desc_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rc_ic_bubble_left"
+        android:gravity="center"
+        android:text="你好111111111111"/>
+    <io.rong.imkit.widget.RCMessageFrameLayout
+        android:id="@+id/ll_receive_location"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rc_ic_bubble_no_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <io.rong.imkit.widget.AsyncImageView
+            android:id="@+id/aiv_receive_img"
+            android:layout_width="204dp"
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
+            app:RCMask="true"
+            app:RCDefDrawable="@drawable/rc_ic_location_item_default" />
+
+        <TextView
+            android:id="@+id/tv_receive_content"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|left"
+            android:background="@drawable/rc_corner_location_style"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:maxLines="2"
+            android:textSize="14sp" />
+    </io.rong.imkit.widget.RCMessageFrameLayout>
+
+
+<!-- 发送的语音消息-->
+    <LinearLayout
+        android:id="@+id/ll_send_voice"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_send_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='12 \"  '/>
+        <ImageView
+            android:id="@+id/iv_send_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rc_ic_voice_sent_play3"
+            android:background="@drawable/rc_ic_bubble_right"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_send_desc_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:background="@drawable/rc_ic_bubble_right"
+        android:text="你好2222222222"/>
+    <io.rong.imkit.widget.RCMessageFrameLayout
+        android:id="@+id/ll_send_location"
+        android:gravity="center_horizontal"
+        android:layout_gravity="right"
+        android:background="@drawable/rc_ic_bubble_right_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <io.rong.imkit.widget.AsyncImageView
+            android:id="@+id/aiv_img"
+            android:layout_width="204dp"
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
+            app:RCMask="true"
+            app:RCDefDrawable="@drawable/rc_ic_location_item_default" />
+
+        <TextView
+            android:id="@+id/tv_location_content"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|left"
+            android:background="@drawable/rc_corner_location_style"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:maxLines="2"
+            android:textSize="14sp" />
+    </io.rong.imkit.widget.RCMessageFrameLayout>
+
+
+</LinearLayout>
