@@ -3,12 +3,14 @@ package so.wih.android.jjewatch.ui.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 /**
  * ==============================================
@@ -19,10 +21,11 @@ import butterknife.ButterKnife;
  * ===============================================
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends SwipeBackActivity {
     // 共享资源
     public static List<BaseActivity> activities = new ArrayList<>();
     public Context context;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +36,25 @@ public class BaseActivity extends AppCompatActivity {
         context = this;
 
         init();
-        initLayout();
+        setContentView(getLayoutResId());
+
+        //获取屏幕的宽度
+        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(dm);
+        int widthPixels = dm.widthPixels;
+
+        /*SwipeBackLayout mSwipeBackLayout  = getSwipeBackLayout();
+        //设置可以滑动的区域，推荐用屏幕像素的1/3来指定
+        mSwipeBackLayout.setEdgeSize(widthPixels/4);
+        //设定滑动关闭的方向，SwipeBackLayout.EDGE_ALL表示向下、左、右滑动均可。EDGE_LEFT，EDGE_RIGHT，EDGE_BOTTOM
+        mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);*/
+
         //绑定ButterKnife
         ButterKnife.bind(this);
-        initView();
+        initData();
+        initListener();
+
     }
 
 
@@ -46,17 +64,21 @@ public class BaseActivity extends AppCompatActivity {
      * 在加载布局前需要干的事情
      */
     public void init(){}
-
     /**
-     * 初始化布局
+     * 返回当前Activity的布局id
+     *
      */
-    public void initLayout() {
-    }
-
+    public abstract int getLayoutResId();
     /**
-     * 初始化所有的控件
+     * 为控件赋值
+     * 加载数据等
      */
-    public void initView(){}
+    public abstract void initData();
+    /**
+     * 初始化监听
+     * 子类所有的监听设置,必须在initListener方法中
+     */
+    public abstract void initListener();
 
     /**
      * 初始化toolbar
@@ -85,4 +107,5 @@ public class BaseActivity extends AppCompatActivity {
         //  自杀进程
         android.os.Process.killProcess(android.os.Process.myPid());
     }
+
 }

@@ -32,7 +32,7 @@ import java.util.List;
 
 import so.wih.android.jjewatch.R;
 import so.wih.android.jjewatch.pojo.StepData;
-import so.wih.android.jjewatch.ui.activity.HealthManagerActivity;
+import so.wih.android.jjewatch.ui.activity.StepActivity;
 import so.wih.android.jjewatch.utils.Constants;
 import so.wih.android.jjewatch.utils.CountDownTimer;
 import so.wih.android.jjewatch.utils.DbUtils;
@@ -97,7 +97,7 @@ public class StepService extends Service implements SensorEventListener {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         initTodayData();
-        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + " 步");
+//        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + " 步");
         return START_STICKY;
     }
 
@@ -188,7 +188,7 @@ public class StepService extends Service implements SensorEventListener {
         builder = new NotificationCompat.Builder(this);
         builder.setPriority(Notification.PRIORITY_MIN);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this,HealthManagerActivity.class), 0);
+                new Intent(this,StepActivity.class), 0);
         builder.setContentIntent(contentIntent);
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setTicker("JJE");
@@ -256,7 +256,7 @@ public class StepService extends Service implements SensorEventListener {
 
                     @Override
                     public void onChange() {
-                        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + i + " 步");
+//                        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + i + " 步");
 //                            updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + " 步");
                     }
                 });
@@ -266,7 +266,7 @@ public class StepService extends Service implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         i++;
 //           StepDcretor.CURRENT_SETP++;
-        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + i + " 步");
+//        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + i + " 步");
     }
 
     @Override

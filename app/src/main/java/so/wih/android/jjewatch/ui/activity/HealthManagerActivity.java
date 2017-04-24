@@ -1,115 +1,88 @@
 package so.wih.android.jjewatch.ui.activity;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import so.wih.android.jjewatch.R;
-import so.wih.android.jjewatch.service.StepService;
-import so.wih.android.jjewatch.utils.Constants;
+import so.wih.android.jjewatch.utils.MyToast;
 
 /**
+ * 健康管理界面
  * Created by HuWei on 2016/11/24.
  */
 
-public class HealthManagerActivity extends BaseActivity implements Handler.Callback {
+public class HealthManagerActivity extends BaseActivity{
 
-    @BindView(R.id.tv_steps)
-    TextView tvSteps;
+    @BindView(R.id.lv_health)
+    ListView lvHealth;
 
-    //循环取当前时刻的步数中间的间隔时间
-    private long TIME_INTERVAL = 500;
-    private Messenger messenger;
-    private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
-    private Handler delayHandler;
+    public String[] healthItem ={"运动","心率","血压","血糖"};
+    public int[] resId = {R.drawable.run, R.drawable.heart_rate,
+            R.drawable.blood_pressure,R.drawable.blood_glucose};
 
-    ServiceConnection conn = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            try {
-                messenger = new Messenger(service);
-                Message msg = Message.obtain(null, Constants.MSG_FROM_CLIENT);
-                msg.replyTo = mGetReplyMessenger;
-                messenger.send(msg);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-        }
-    };
 
     @Override
-    public boolean handleMessage(Message msg) {
-        switch (msg.what) {
-            case  Constants.MSG_FROM_SERVER:
-                // 更新界面上的步数
-                tvSteps.setText( msg.getData().getInt("step") +" 步");
-                delayHandler.sendEmptyMessageDelayed( Constants.REQUEST_SERVER, TIME_INTERVAL);
-                break;
-            case  Constants.REQUEST_SERVER:
-                try {
-                    Message msg1 = Message.obtain(null, Constants.MSG_FROM_CLIENT);
-                    msg1.replyTo = mGetReplyMessenger;
-                    messenger.send(msg1);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
+    public int getLayoutResId() {
+        return R.layout.health_manager_activity;
+    }
+
+    @Override
+    public void initData() {
+        lvHealth.setAdapter(new HealthAdapter());
+    }
+
+    @Override
+    public void initListener() {
+        lvHealth.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position < 4){
+                    Intent intent = new Intent(HealthManagerActivity.this,HealthDescActivity.class);
+                    intent.putExtra("position",position);
+                    startActivity(intent);
+
+                }else{
+                    MyToast.showToast(context,"该功能尚在开发！");
                 }
 
-                break;
+            }
+        });
+    }
+
+    public class HealthAdapter extends BaseAdapter{
+        @Override
+        public int getCount() {
+            return healthItem.length;
         }
-        return false;
-    }
-    @Override
-    public void initLayout() {
-        super.initLayout();
-        setContentView(R.layout.health_manager_activity);
-    }
 
-    @Override
-    public void initView() {
-        super.initView();
-        delayHandler = new Handler(this);
-    }
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        setupService();
-    }
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
 
-    private void setupService() {
-        Intent intent = new Intent(this, StepService.class);
-        bindService(intent, conn, Context.BIND_AUTO_CREATE);
-        startService(intent);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbindService(conn);
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = getLayoutInflater().inflate(R.layout.health_list_item, null);
+            TextView tv_health_desc = (TextView) view.findViewById(R.id.tv_health_desc);
+            Drawable drawable= getResources().getDrawable(resId[position]);
+            /// 这一步必须要做,否则不会显示.
+            drawable.setBounds(0, 0, drawable.getMinimumWidth()*2, drawable.getMinimumHeight()*2);
+            tv_health_desc.setCompoundDrawables(drawable,null,null,null);
+            tv_health_desc.setText(healthItem[position]);
+            return view;
+        }
     }
 
 }

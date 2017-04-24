@@ -4,4 +4,14 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="main_theme_color">#0195ff</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="sin_background">#800f</color>
+    <color name="add_background">#76ff41</color>
+    <color name="color_black">#000000</color>
+    <color name="color_green">#00ff00</color>
+    <color name="dark_blue">#483d8b</color>
+    <!--紫罗兰色-->
+    <color name="zi_blue">#8a2be2</color>
+    <color name="color_red">#ff0000</color>
+    <color name="discern_item">#A8A8A8</color>
 </resources>

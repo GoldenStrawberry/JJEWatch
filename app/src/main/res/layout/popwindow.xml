@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/btn_delete_friend"
+        android:textSize="23sp"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/color_white"
+        android:text="@string/delete_friend"/>
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/small_text_size"
+        android:text="@string/cancel"/>
+
+</LinearLayout>

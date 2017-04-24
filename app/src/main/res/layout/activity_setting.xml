@@ -1,44 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/color_black"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/title_size"
-            android:text="音量"/>
-        <SeekBar
-            android:id="@+id/sb_sys_voice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_weight="1"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="@dimen/item_height">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/second_title_size"
+                android:textColor="@color/color_white"
+                android:text="@string/volume"/>
+            <SeekBar
+                android:id="@+id/sb_sys_voice"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_voice_value"
+                android:textSize="@dimen/second_title_size"
+                android:textColor="@color/color_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_2"
+            android:layout_below="@id/ll_1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="@dimen/item_height">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/second_title_size"
+                android:textColor="@color/color_white"
+                android:text="@string/sunlight"/>
+            <SeekBar
+                android:id="@+id/sb_sunlight"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_sunlight_value"
+                android:textSize="@dimen/second_title_size"
+                android:textColor="@color/color_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <!--生成二维码-->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/title_size"
-            android:text="亮度"/>
-        <SeekBar
-            android:id="@+id/sb_sunlight"
+            android:id="@+id/tv_encoder"
+            android:layout_below="@id/ll_2"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/second_title_size"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_white"
+            android:layout_height="@dimen/item_height"
+            android:text="@string/qrcode"/>
+        <Button
+            android:id="@+id/btn_wifi"
+            android:layout_below="@id/tv_encoder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:padding="@dimen/margin_dimen"
+            android:textSize="@dimen/second_title_size"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/margin_dimen"
+            android:background="@drawable/button"
+            android:textColor="@color/color_white"
+            android:text="请求WIFI"/>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/btn_gprs"
+            android:layout_below="@id/btn_wifi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_dimen"
+            android:textSize="@dimen/second_title_size"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/margin_dimen"
+            android:background="@drawable/button"
+            android:textColor="@color/color_white"
+            android:text="设置数据"/>
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_below="@id/btn_gprs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_dimen"
+            android:textSize="@dimen/second_title_size"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/margin_dimen"
+            android:background="@drawable/button"
+            android:textColor="@color/color_white"
+            android:text="检查版本"/>
+
+    </RelativeLayout>
 
 
-</LinearLayout>
+
+</ScrollView>

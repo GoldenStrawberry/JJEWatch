@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_black"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
         style="@style/TitleStyle"
-        android:text="健康管理"/>
+        android:textColor="@color/color_white"
+        android:text="@string/health_manager"/>
     <ImageView
         android:id="@+id/iv_health_manager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:padding="30dp"
-        android:src="@mipmap/ic_healthy"/>
+        android:src="@drawable/health_manager_64"/>
 
 </LinearLayout>

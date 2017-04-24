@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:gravity="center"
     android:id="@+id/ll_items"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true">
 
         <TextView
             android:id="@+id/tv_name"
-            android:textSize="@dimen/title_size"
+            android:textSize="@dimen/first_title_size"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="zhangkefeng"/>
-        <TextView
-            android:id="@+id/tv_phone"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/title_size"
-            android:layout_height="wrap_content"
-            android:text="18626255712"/>
+            android:gravity="center"
+            android:layout_height="@dimen/item_height"
+            android:maxEms="4"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/color_white"
+            android:text="@string/friend_name"/>
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/item_height"
+            android:src="@drawable/watch" />
 
 </LinearLayout>
 

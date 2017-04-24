@@ -3,5 +3,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="icon_padding">15dp</dimen>
-    <dimen name="title_size">30sp</dimen>
+    <dimen name="second_title_size">30sp</dimen>
+    <dimen name="first_title_size">50sp</dimen>
+    <dimen name="middle_text_size">40sp</dimen>
+    <dimen name="item_height">100dp</dimen>
+    <dimen name="small_text_size">25sp</dimen>
+    <dimen name="lsmall_text_size">20sp</dimen>
+    <dimen name="margin_dimen">10dp</dimen>
+    <dimen name="large_title_size">60sp</dimen>
+    <dimen name="thirty_text_size">24sp</dimen>
+    <dimen name="small_dimen">5dp</dimen>
 </resources>

@@ -1,52 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_black"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+<!--    <TextView
         android:id="@+id/tv_contact_name"
-        android:textSize="20sp"
-        android:background="#00ff00"
+        android:textSize="@dimen/middle_text_size"
+        android:background="@color/dark_blue"
         android:gravity="center"
+        android:textColor="@color/color_white"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
-    <ListView
-        android:id="@+id/lv_msg"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp"
-        android:listSelector="#00000000"
-        android:divider="@null">
+        android:layout_height="70dp" />-->
 
-    </ListView>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="#0000ff"
-        android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <Button
-            android:id="@+id/btn_call"
-            android:layout_width="0dp"
+
+        <ListView
+            android:id="@+id/lv_msg"
+            android:layout_width="match_parent"
             android:layout_weight="1"
-            android:text="打你电话"
-            android:textSize="20sp"
-            android:layout_height="match_parent" />
-        <Button
-            android:id="@+id/btn_location"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="发送位置"
-            android:textSize="20sp"/>
-        <Button
+            android:layout_height="0dp"
+            android:listSelector="#00000000"
+            android:divider="@null" />
+
+
+
+
+        <ImageView
             android:id="@+id/btn_mic"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:textSize="20sp"
-            android:text="按住说话"/>
-    </LinearLayout>
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mac_blue_24dp"/>
+
 
 
 </LinearLayout>

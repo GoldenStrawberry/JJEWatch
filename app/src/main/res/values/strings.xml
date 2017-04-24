@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">JJEWatch</string>
+    <string name="up_location">上传位置</string>
+    <string name="text_on">开</string>
+    <string name="text_off">关</string>
+    <string name="pref_key_iat_show">iat_show</string>
+    <string name="text_begin">请开始说话&#8230;</string>
+    <string name="app_id">58783b1d</string>
+    <string name="speak_text">您可以这样说...\n 打电话给儿子...\n 苏州的天气...\n 发短信给儿子...\n 最新的社保文件</string>
+    <string name="add_friend">添加好友</string>
+    <string name="health_manager">健康管理</string>
+    <string name="setting">设置</string>
+    <string name="voice_function">语音功能</string>
+    <string name="my_friend">我的好友</string>
+    <string name="friend_name">张科峰</string>
+    <string name="delete_friend">删除好友</string>
+    <string name="no_contacts">没有联系人，请添加！</string>
+    <string name="phone_number">18626255712</string>
+    <string name="run_corder">运动</string>
+    <string name="chat_content">helohellohelohellohelohellohelohellohelohellohelohello</string>
+    <string name="time">2016/05/10</string>
+    <string name="i_know">我知道了</string>
+    <string name="cancel">取消</string>
+    <string name="volume">音量</string>
+    <string name="down_refresh">下拉刷新</string>
+    <string name="my_location">我的位置</string>
+    <string name="press_talk">按住说话</string>
+    <string name="hour">8 : 00 AM</string>
+    <string name="sunlight">亮度</string>
+    <string name="step">0步</string>
+    <string name="vibration_switch">震动开关</string>
+    <string name="voice_reminder">语音提醒</string>
+    <string name="qrcode">我的二维码</string>
+    <string name="call">打电话</string>
+    <string name="add_device">绑定设备</string>
+    <string name="error_alias_empty">alias为null</string>
 </resources>

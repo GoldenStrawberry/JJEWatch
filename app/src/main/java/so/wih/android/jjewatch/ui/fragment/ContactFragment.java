@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import so.wih.android.jjewatch.R;
-import so.wih.android.jjewatch.ui.activity.ContactActivity;
+import so.wih.android.jjewatch.ui.activity.ContactsActivity;
 
 /**
  * 联系人主界面
@@ -38,8 +38,9 @@ public class ContactFragment extends Fragment {
         contactImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),ContactActivity.class);
+                Intent intent = new Intent(getActivity(), ContactsActivity.class);
                 startActivity(intent);
+
             }
         });
     }
